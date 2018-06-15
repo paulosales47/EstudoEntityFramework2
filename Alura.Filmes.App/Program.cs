@@ -17,42 +17,6 @@ namespace Alura.Filmes.App
                 {
                     try
                     {
-                        //var filme = context.Filmes
-                        //    .Include(f => f.Atores)
-                        //    .ThenInclude(fa => fa.Ator)
-                        //    .Include(f => f.Categorias)
-                        //    .ThenInclude(fc => fc.Categoria)
-                        //    .First();
-
-                        //Console.WriteLine($"FILME: {filme.Titulo}\n");
-
-                        //Console.WriteLine($"ATORES: \n");
-                        //foreach (var ator in filme.Atores)
-                        //{
-                        //    Console.WriteLine(ator.Ator);
-                        //}
-
-                        //Console.WriteLine($"\nCATEGORIA: \n");
-                        //foreach (var categoria in filme.Categorias)
-                        //{
-                        //    Console.WriteLine(categoria.Categoria);
-                        //}
-
-                        var linguagens = context.Linguagens
-                            .Include(l => l.FilmesDublados)
-                            .ToList();
-
-                        foreach (var linguagem in linguagens)
-                        {
-                            Console.WriteLine($"Id: {linguagem.Id} - Linguagem: {linguagem.Nome} \n");
-                            Console.WriteLine($"Filmes dessa lingua: \n");
-
-                            foreach (var filme in linguagem.FilmesDublados)
-                            {
-                                Console.WriteLine(filme);
-                            }
-                        }
-
                         
                     }
                     catch (Exception ex)
