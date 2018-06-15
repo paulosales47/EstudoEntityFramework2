@@ -153,6 +153,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Dados\AtorConfiguration.cs" />
+    <Compile Include="Dados\FilmeConfiguration.cs" />
     <Compile Include="Dados\FilmeContexto.cs" />
     <Compile Include="Extensions\DbContextExtensions.cs" />
     <Compile Include="Migrations\20180614184738_ValorPadraoLastUpdateAtor.cs" />

@@ -13,8 +13,23 @@ namespace Alura.Filmes.App.Negocio
         public string Descricao { get; set; }
         public string AnoLancamento { get; set; }
         public byte IdLinguagem { get; set; }
-        public byte IdLinguagemOriginal { get; set; }
-        public Int16? Duracao { get; set; }
-        public string Votacao { get; set; }
+        public byte? IdLinguagemOriginal { get; set; }
+        public short? Duracao { get; set; }
+        public string Classificacao { get; set; }
+
+        public override string ToString()
+        {
+            return $"Id: {Id} " +
+                   $", Titulo: {Titulo}" +
+                   $", Descrição: {Descricao}" +
+                   $", Ano de Lançamento: {AnoLancamento}" +
+                   $", Id Linguagem: {IdLinguagem}" +
+                   $", Id Linguagem Original: {IdLinguagemOriginal}" +
+                   $", Duração: {Duracao}" +
+                   $", Classificação: {Classificacao}" +
+                   $"\n";
+        }
+
+
     }
 }
