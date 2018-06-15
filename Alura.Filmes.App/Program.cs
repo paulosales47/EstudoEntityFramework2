@@ -17,11 +17,15 @@ namespace Alura.Filmes.App
                 {
                     try
                     {
-                        var filmes = context.Filmes.ToList();
+                        var elenco = context.FilmeAtor.ToList();
 
-                        foreach (var filme in filmes)
+                        foreach (var filmeAtor in elenco)
                         {
-                            Console.WriteLine(filme);
+                            var entidade = context.Entry(filmeAtor);
+                            var filmeId = entidade.Property("film_id").CurrentValue;
+                            var atorId = entidade.Property("actor_id").CurrentValue;
+
+                            Console.WriteLine($"{filmeId} - {atorId}");
                         }
 
                         contextTransaction.Commit();

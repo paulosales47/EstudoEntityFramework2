@@ -12,6 +12,8 @@ namespace Alura.Filmes.App.Dados
     {
         public DbSet<Ator> Atores { get; set; }
         public DbSet<Filme> Filmes { get; set; }
+
+        public DbSet<FilmeAtor> FilmeAtor { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer("Server = (localdb)\\mssqllocaldb; Database =FILME; Trusted_Connection = true;")
@@ -24,6 +26,7 @@ namespace Alura.Filmes.App.Dados
 
             modelBuilder.ApplyConfiguration(new FilmeConfiguration());
 
+            modelBuilder.ApplyConfiguration(new FilmeAtorConfiguration());
         }
 
     }
