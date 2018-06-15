@@ -10,6 +10,7 @@ namespace Alura.Filmes.App
     {
         static void Main(string[] args)
         {
+            
             using (var context = new FilmeContexto())
             {
                 using (var contextTransaction = context.Database.BeginTransaction())

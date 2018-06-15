@@ -159,8 +159,13 @@
     <Compile Include="Migrations\20180614184738_ValorPadraoLastUpdateAtor.designer.cs">
       <DependentUpon>20180614184738_ValorPadraoLastUpdateAtor.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20180615125723_Filme.cs" />
+    <Compile Include="Migrations\20180615125723_Filme.designer.cs">
+      <DependentUpon>20180615125723_Filme.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\FilmeContextoModelSnapshot.cs" />
     <Compile Include="Negocio\Ator.cs" />
+    <Compile Include="Negocio\Filme.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
