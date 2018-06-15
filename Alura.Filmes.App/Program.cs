@@ -26,13 +26,11 @@ namespace Alura.Filmes.App
                     {
                         var ator = new Ator
                         {
-                            PrimeiroNome = "Paulo Henrique"
+                            PrimeiroNome = "Teste"
                             ,
-                            UltimoNome = "Sales Sampaio"
+                            UltimoNome = "Teste"
                         };
-
-                        context.Entry(ator).Property("last_update").CurrentValue = DateTime.Now;
-
+                        
                         context.Atores.Add(ator);
 
                         context.SaveChanges();

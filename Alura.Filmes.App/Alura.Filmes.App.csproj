@@ -155,6 +155,11 @@
   <ItemGroup>
     <Compile Include="Dados\FilmeContexto.cs" />
     <Compile Include="Extensions\DbContextExtensions.cs" />
+    <Compile Include="Migrations\20180614184738_ValorPadraoLastUpdateAtor.cs" />
+    <Compile Include="Migrations\20180614184738_ValorPadraoLastUpdateAtor.designer.cs">
+      <DependentUpon>20180614184738_ValorPadraoLastUpdateAtor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\FilmeContextoModelSnapshot.cs" />
     <Compile Include="Negocio\Ator.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -167,9 +172,7 @@
     <Content Include="Scripts\alurafilmes-cargainicial.sql" />
     <Content Include="Scripts\alurafilmes-estrutura.sql" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Migrations\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
     <PropertyGroup>
