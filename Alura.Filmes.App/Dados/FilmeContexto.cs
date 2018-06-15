@@ -13,7 +13,7 @@ namespace Alura.Filmes.App.Dados
         public DbSet<Ator> Atores { get; set; }
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("Server = (localdb)\\mssqllocaldb; Database =FILME_MGT; Trusted_Connection = true;")
+            optionsBuilder.UseSqlServer("Server = (localdb)\\mssqllocaldb; Database =FILME; Trusted_Connection = true;")
             .RalmsExtendFunctions();
         }
 

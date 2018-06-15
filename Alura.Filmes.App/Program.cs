@@ -10,34 +10,23 @@ namespace Alura.Filmes.App
     {
         static void Main(string[] args)
         {
-            //using (var context = new FilmeContexto())
-            //{
-            //    foreach (var atores in context.Atores)
-            //    {
-            //        System.Console.WriteLine(atores.ToString());
-            //    }
-            //}
-
             using (var context = new FilmeContexto())
             {
                 using (var contextTransaction = context.Database.BeginTransaction())
                 {
                     try
                     {
-                        var ator = new Ator
-                        {
-                            PrimeiroNome = "Teste"
-                            ,
-                            UltimoNome = "Teste"
-                        };
-                        
-                        context.Atores.Add(ator);
+                        var atores = context.Atores
+                            .OrderByDescending(a => EF.Property<DateTime>(a, "last_update"))
+                            .Take(10);
 
-                        context.SaveChanges();
+                        foreach (var ator in atores)
+                        {
+                            Console.WriteLine(ator + " -  "+ context.Entry(ator).Property("last_update").CurrentValue);
+                        }
 
                         contextTransaction.Commit();
-
-                        Console.WriteLine("Registro salvo com sucesso");
+                        
                     }
                     catch (Exception ex)
                     {
