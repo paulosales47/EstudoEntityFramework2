@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Alura.Filmes.App.Negocio
@@ -7,10 +8,14 @@ namespace Alura.Filmes.App.Negocio
     public class Ator
     {
         public int Id { get; set; }
-
         public string PrimeiroNome { get; set; }
-
         public string UltimoNome { get; set; }
+        public IList<FilmeAtor> Filmes { get; set; }
+
+        public Ator()
+        {
+            Filmes = new List<FilmeAtor>();
+        }
 
         public override string ToString()
         {

@@ -16,6 +16,14 @@ namespace Alura.Filmes.App.Negocio
         public byte? IdLinguagemOriginal { get; set; }
         public short? Duracao { get; set; }
         public string Classificacao { get; set; }
+        public IList<FilmeAtor> Atores { get; set; }
+        public IList<FilmeCategoria> Categorias { get; set; }
+
+        public Filme()
+        {
+            Atores = new List<FilmeAtor>();
+            Categorias = new List<FilmeCategoria>();
+        }
 
         public override string ToString()
         {

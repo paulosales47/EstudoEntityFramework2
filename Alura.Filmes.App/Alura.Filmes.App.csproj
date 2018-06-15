@@ -154,9 +154,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Dados\AtorConfiguration.cs" />
+    <Compile Include="Dados\CategoriaConfiguration.cs" />
     <Compile Include="Dados\FilmeAtorConfiguration.cs" />
+    <Compile Include="Dados\FilmeCategoriaConfiguration.cs" />
     <Compile Include="Dados\FilmeConfiguration.cs" />
     <Compile Include="Dados\FilmeContexto.cs" />
+    <Compile Include="Dados\LinguagemConfiguration.cs" />
     <Compile Include="Extensions\DbContextExtensions.cs" />
     <Compile Include="Migrations\20180614184738_ValorPadraoLastUpdateAtor.cs" />
     <Compile Include="Migrations\20180614184738_ValorPadraoLastUpdateAtor.designer.cs">
@@ -166,10 +169,17 @@
     <Compile Include="Migrations\20180615125723_Filme.designer.cs">
       <DependentUpon>20180615125723_Filme.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20180615180418_FilmeAtorFilmeCategoria.cs" />
+    <Compile Include="Migrations\20180615180418_FilmeAtorFilmeCategoria.designer.cs">
+      <DependentUpon>20180615180418_FilmeAtorFilmeCategoria.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\FilmeContextoModelSnapshot.cs" />
     <Compile Include="Negocio\Ator.cs" />
+    <Compile Include="Negocio\Categoria.cs" />
     <Compile Include="Negocio\Filme.cs" />
     <Compile Include="Negocio\FilmeAtor.cs" />
+    <Compile Include="Negocio\FilmeCategoria.cs" />
+    <Compile Include="Negocio\Linguagem.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
