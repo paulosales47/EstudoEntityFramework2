@@ -38,15 +38,22 @@ namespace Alura.Filmes.App
                         //    Console.WriteLine(categoria.Categoria);
                         //}
 
-                        var linguagens = context.Linguagens.ToList();
+                        var linguagens = context.Linguagens
+                            .Include(l => l.FilmesDublados)
+                            .ToList();
 
                         foreach (var linguagem in linguagens)
                         {
-                            Console.WriteLine(linguagem);
+                            Console.WriteLine($"Id: {linguagem.Id} - Linguagem: {linguagem.Nome} \n");
+                            Console.WriteLine($"Filmes dessa lingua: \n");
+
+                            foreach (var filme in linguagem.FilmesDublados)
+                            {
+                                Console.WriteLine(filme);
+                            }
                         }
 
-
-                        contextTransaction.Commit();                        
+                        
                     }
                     catch (Exception ex)
                     {
@@ -54,9 +61,6 @@ namespace Alura.Filmes.App
                         contextTransaction.Rollback();
                     }
                 }
-
-
-
             }
 
             Console.ReadKey();

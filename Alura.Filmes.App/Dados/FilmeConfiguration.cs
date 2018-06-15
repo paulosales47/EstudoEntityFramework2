@@ -33,14 +33,6 @@ namespace Alura.Filmes.App.Dados
                 .HasColumnType("varchar(4)");
 
             builder
-                .Property(f => f.IdLinguagem)
-                .HasColumnName("language_id");
-
-            builder
-                .Property(f => f.IdLinguagemOriginal)
-                .HasColumnName("original_language_id");
-
-            builder
                 .Property(f => f.Duracao)
                 .HasColumnName("length");
 
@@ -54,6 +46,24 @@ namespace Alura.Filmes.App.Dados
                 .Property<DateTime>("last_update")
                 .HasColumnType("datetime")
                 .HasDefaultValueSql("GETDATE()");
+
+            builder
+                .Property<byte>("language_id");
+
+            builder
+                .Property<byte?>("original_language_id");
+
+            builder
+                .HasOne(f => f.LinguagemDublada)
+                .WithMany(l => l.FilmesDublados)
+                .HasForeignKey("language_id");
+
+            builder
+                .HasOne(f => f.LinguagemOriginal)
+                .WithMany(l => l.FilmesOriginais)
+                .HasForeignKey("original_language_id");
+
+
 
         }
     }

@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace Alura.Filmes.App.Migrations
 {
     [DbContext(typeof(FilmeContexto))]
-    [Migration("20180615180418_FilmeAtorFilmeCategoria")]
-    partial class FilmeAtorFilmeCategoria
+    [Migration("20180615195212_Linguagem")]
+    partial class Linguagem
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -54,11 +54,14 @@ namespace Alura.Filmes.App.Migrations
                         .HasColumnName("category_id");
 
                     b.Property<string>("Nome")
+                        .IsRequired()
                         .HasColumnName("name")
                         .HasColumnType("varchar(25)");
 
                     b.Property<DateTime>("last_update")
-                        .HasColumnType("datetime");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime")
+                        .HasDefaultValueSql("GETDATE()");
 
                     b.HasKey("Id");
 
@@ -87,23 +90,25 @@ namespace Alura.Filmes.App.Migrations
                     b.Property<short?>("Duracao")
                         .HasColumnName("length");
 
-                    b.Property<byte>("IdLinguagem")
-                        .HasColumnName("language_id");
-
-                    b.Property<byte?>("IdLinguagemOriginal")
-                        .HasColumnName("original_language_id");
-
                     b.Property<string>("Titulo")
                         .IsRequired()
                         .HasColumnName("title")
                         .HasColumnType("varchar(255)");
+
+                    b.Property<byte>("language_id");
 
                     b.Property<DateTime>("last_update")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("datetime")
                         .HasDefaultValueSql("GETDATE()");
 
+                    b.Property<byte?>("original_language_id");
+
                     b.HasKey("Id");
+
+                    b.HasIndex("language_id");
+
+                    b.HasIndex("original_language_id");
 
                     b.ToTable("film");
                 });
@@ -133,13 +138,47 @@ namespace Alura.Filmes.App.Migrations
                     b.Property<byte>("category_id");
 
                     b.Property<DateTime>("last_update")
-                        .HasColumnType("datetime");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime")
+                        .HasDefaultValueSql("GETDATE()");
 
                     b.HasKey("film_id", "category_id");
 
                     b.HasIndex("category_id");
 
                     b.ToTable("film_category");
+                });
+
+            modelBuilder.Entity("Alura.Filmes.App.Negocio.Linguagem", b =>
+                {
+                    b.Property<byte>("Id")
+                        .HasColumnName("language_id");
+
+                    b.Property<string>("Nome")
+                        .IsRequired()
+                        .HasColumnName("name")
+                        .HasColumnType("char(20)");
+
+                    b.Property<DateTime>("last_update")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime")
+                        .HasDefaultValueSql("GETDATE()");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("language");
+                });
+
+            modelBuilder.Entity("Alura.Filmes.App.Negocio.Filme", b =>
+                {
+                    b.HasOne("Alura.Filmes.App.Negocio.Linguagem", "LinguagemDublada")
+                        .WithMany("FilmesDublados")
+                        .HasForeignKey("language_id")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("Alura.Filmes.App.Negocio.Linguagem", "LinguagemOriginal")
+                        .WithMany("FilmesOriginais")
+                        .HasForeignKey("original_language_id");
                 });
 
             modelBuilder.Entity("Alura.Filmes.App.Negocio.FilmeAtor", b =>

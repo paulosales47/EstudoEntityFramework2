@@ -169,9 +169,9 @@
     <Compile Include="Migrations\20180615125723_Filme.designer.cs">
       <DependentUpon>20180615125723_Filme.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\20180615180418_FilmeAtorFilmeCategoria.cs" />
-    <Compile Include="Migrations\20180615180418_FilmeAtorFilmeCategoria.designer.cs">
-      <DependentUpon>20180615180418_FilmeAtorFilmeCategoria.cs</DependentUpon>
+    <Compile Include="Migrations\20180615195212_Linguagem.cs" />
+    <Compile Include="Migrations\20180615195212_Linguagem.designer.cs">
+      <DependentUpon>20180615195212_Linguagem.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\FilmeContextoModelSnapshot.cs" />
     <Compile Include="Negocio\Ator.cs" />

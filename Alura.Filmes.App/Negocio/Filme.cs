@@ -12,8 +12,8 @@ namespace Alura.Filmes.App.Negocio
         public string Titulo { get; set; }
         public string Descricao { get; set; }
         public string AnoLancamento { get; set; }
-        public byte IdLinguagem { get; set; }
-        public byte? IdLinguagemOriginal { get; set; }
+        public Linguagem LinguagemDublada { get; set; }
+        public Linguagem LinguagemOriginal { get; set; }
         public short? Duracao { get; set; }
         public string Classificacao { get; set; }
         public IList<FilmeAtor> Atores { get; set; }
@@ -31,8 +31,6 @@ namespace Alura.Filmes.App.Negocio
                    $", Titulo: {Titulo}" +
                    $", Descrição: {Descricao}" +
                    $", Ano de Lançamento: {AnoLancamento}" +
-                   $", Id Linguagem: {IdLinguagem}" +
-                   $", Id Linguagem Original: {IdLinguagemOriginal}" +
                    $", Duração: {Duracao}" +
                    $", Classificação: {Classificacao}" +
                    $"\n";

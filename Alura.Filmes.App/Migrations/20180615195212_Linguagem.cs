@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Alura.Filmes.App.Migrations
 {
-    public partial class FilmeAtorFilmeCategoria : Migration
+    public partial class Linguagem : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -18,8 +18,8 @@ namespace Alura.Filmes.App.Migrations
                 columns: table => new
                 {
                     category_id = table.Column<byte>(nullable: false),
-                    name = table.Column<string>(type: "varchar(25)", nullable: true),
-                    last_update = table.Column<DateTime>(type: "datetime", nullable: false)
+                    name = table.Column<string>(type: "varchar(25)", nullable: false),
+                    last_update = table.Column<DateTime>(type: "datetime", nullable: false, defaultValueSql: "GETDATE()")
                 },
                 constraints: table =>
                 {
@@ -52,12 +52,25 @@ namespace Alura.Filmes.App.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "language",
+                columns: table => new
+                {
+                    language_id = table.Column<byte>(nullable: false),
+                    name = table.Column<string>(type: "char(20)", nullable: false),
+                    last_update = table.Column<DateTime>(type: "datetime", nullable: false, defaultValueSql: "GETDATE()")
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_language", x => x.language_id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "film_category",
                 columns: table => new
                 {
                     film_id = table.Column<int>(nullable: false),
                     category_id = table.Column<byte>(nullable: false),
-                    last_update = table.Column<DateTime>(type: "datetime", nullable: false)
+                    last_update = table.Column<DateTime>(type: "datetime", nullable: false, defaultValueSql: "GETDATE()")
                 },
                 constraints: table =>
                 {
@@ -77,6 +90,16 @@ namespace Alura.Filmes.App.Migrations
                 });
 
             migrationBuilder.CreateIndex(
+                name: "IX_film_language_id",
+                table: "film",
+                column: "language_id");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_film_original_language_id",
+                table: "film",
+                column: "original_language_id");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_film_actor_film_id",
                 table: "film_actor",
                 column: "film_id");
@@ -85,10 +108,34 @@ namespace Alura.Filmes.App.Migrations
                 name: "IX_film_category_category_id",
                 table: "film_category",
                 column: "category_id");
+
+            migrationBuilder.AddForeignKey(
+                name: "FK_film_language_language_id",
+                table: "film",
+                column: "language_id",
+                principalTable: "language",
+                principalColumn: "language_id",
+                onDelete: ReferentialAction.Cascade);
+
+            migrationBuilder.AddForeignKey(
+                name: "FK_film_language_original_language_id",
+                table: "film",
+                column: "original_language_id",
+                principalTable: "language",
+                principalColumn: "language_id",
+                onDelete: ReferentialAction.Restrict);
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
+            migrationBuilder.DropForeignKey(
+                name: "FK_film_language_language_id",
+                table: "film");
+
+            migrationBuilder.DropForeignKey(
+                name: "FK_film_language_original_language_id",
+                table: "film");
+
             migrationBuilder.DropTable(
                 name: "film_actor");
 
@@ -96,7 +143,18 @@ namespace Alura.Filmes.App.Migrations
                 name: "film_category");
 
             migrationBuilder.DropTable(
+                name: "language");
+
+            migrationBuilder.DropTable(
                 name: "category");
+
+            migrationBuilder.DropIndex(
+                name: "IX_film_language_id",
+                table: "film");
+
+            migrationBuilder.DropIndex(
+                name: "IX_film_original_language_id",
+                table: "film");
 
             migrationBuilder.AlterColumn<byte>(
                 name: "original_language_id",
