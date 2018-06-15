@@ -4,14 +4,16 @@ using Alura.Filmes.App.Dados;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace Alura.Filmes.App.Migrations
 {
     [DbContext(typeof(FilmeContexto))]
-    partial class FilmeContextoModelSnapshot : ModelSnapshot
+    [Migration("20180615201557_AtorIndiceUltimoNome")]
+    partial class AtorIndiceUltimoNome
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
