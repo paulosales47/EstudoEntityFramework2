@@ -1,5 +1,6 @@
 ﻿using Alura.Filmes.App.Dados;
 using Alura.Filmes.App.Negocio;
+using Alura.Filmes.App.Extensions;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Linq;
@@ -17,7 +18,17 @@ namespace Alura.Filmes.App
                 {
                     try
                     {
-                        
+                        var filme = context.Filmes.First();
+
+                        Console.WriteLine(filme);
+
+                        filme.Classificacao = ClassificacaoIndicativa.NC17;
+
+                        Console.WriteLine(filme);
+
+                        context.Add(filme);
+                        context.SaveChanges();
+                        contextTransaction.Commit();
                     }
                     catch (Exception ex)
                     {

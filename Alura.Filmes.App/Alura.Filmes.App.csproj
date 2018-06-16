@@ -160,6 +160,7 @@
     <Compile Include="Dados\FilmeConfiguration.cs" />
     <Compile Include="Dados\FilmeContexto.cs" />
     <Compile Include="Dados\LinguagemConfiguration.cs" />
+    <Compile Include="Extensions\ClassificaoIndicativaExtensions.cs" />
     <Compile Include="Extensions\DbContextExtensions.cs" />
     <Compile Include="Migrations\20180614184738_ValorPadraoLastUpdateAtor.cs" />
     <Compile Include="Migrations\20180614184738_ValorPadraoLastUpdateAtor.designer.cs">
@@ -177,9 +178,18 @@
     <Compile Include="Migrations\20180615201557_AtorIndiceUltimoNome.designer.cs">
       <DependentUpon>20180615201557_AtorIndiceUltimoNome.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\20180615211733_AtorUnique.cs" />
+    <Compile Include="Migrations\20180615211733_AtorUnique.designer.cs">
+      <DependentUpon>20180615211733_AtorUnique.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\20180615214403_FilmeCheck.cs" />
+    <Compile Include="Migrations\20180615214403_FilmeCheck.designer.cs">
+      <DependentUpon>20180615214403_FilmeCheck.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\FilmeContextoModelSnapshot.cs" />
     <Compile Include="Negocio\Ator.cs" />
     <Compile Include="Negocio\Categoria.cs" />
+    <Compile Include="Negocio\ClassificacaoIndicativa.cs" />
     <Compile Include="Negocio\Filme.cs" />
     <Compile Include="Negocio\FilmeAtor.cs" />
     <Compile Include="Negocio\FilmeCategoria.cs" />

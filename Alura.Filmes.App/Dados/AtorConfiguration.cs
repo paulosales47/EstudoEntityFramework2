@@ -36,6 +36,9 @@ namespace Alura.Filmes.App.Dados
             builder
                 .HasIndex(a => a.UltimoNome);
 
+            builder
+                .HasAlternateKey(a => new { a.PrimeiroNome, a.UltimoNome });
+
         }
     }
 }
