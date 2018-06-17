@@ -13,6 +13,8 @@ namespace Alura.Filmes.App.Dados
         public DbSet<Ator> Atores { get; set; }
         public DbSet<Linguagem> Linguagens { get; set; }
         public DbSet<Categoria> Categorias { get; set; }
+        public DbSet<Cliente> Clientes { get; set; }
+        public DbSet<Funcionario> Funcionarios { get; set; }
         public DbSet<Filme> Filmes { get; set; }
         public DbSet<FilmeAtor> FilmeAtor { get; set; }
         public DbSet<FilmeCategoria> FilmeCategoria { get; set; }
@@ -26,15 +28,12 @@ namespace Alura.Filmes.App.Dados
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.ApplyConfiguration(new AtorConfiguration());
-
             modelBuilder.ApplyConfiguration(new LinguagemConfiguration());
-
             modelBuilder.ApplyConfiguration(new CategoriaConfiguration());
-
+            modelBuilder.ApplyConfiguration(new ClienteConfiguration());
+            modelBuilder.ApplyConfiguration(new FuncionarioConfiguration());
             modelBuilder.ApplyConfiguration(new FilmeConfiguration());
-
             modelBuilder.ApplyConfiguration(new FilmeAtorConfiguration());
-
             modelBuilder.ApplyConfiguration(new FilmeCategoriaConfiguration());
         }
 

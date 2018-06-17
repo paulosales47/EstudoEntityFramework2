@@ -18,17 +18,19 @@ namespace Alura.Filmes.App
                 {
                     try
                     {
-                        var filme = context.Filmes.First();
+                        var clientes = context.Clientes.ToList();
 
-                        Console.WriteLine(filme);
+                        foreach (var cliente in clientes)
+                        {
+                            Console.WriteLine(cliente);
+                        }
 
-                        filme.Classificacao = ClassificacaoIndicativa.NC17;
+                        var funcionarios = context.Funcionarios.ToList();
 
-                        Console.WriteLine(filme);
-
-                        context.Add(filme);
-                        context.SaveChanges();
-                        contextTransaction.Commit();
+                        foreach (var functionario in funcionarios)
+                        {
+                            Console.WriteLine(functionario);
+                        }
                     }
                     catch (Exception ex)
                     {
