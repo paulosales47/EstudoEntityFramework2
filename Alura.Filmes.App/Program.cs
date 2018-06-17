@@ -18,18 +18,14 @@ namespace Alura.Filmes.App
                 {
                     try
                     {
-                        var clientes = context.Clientes.ToList();
+                        var atores = context.Atores
+                            .Include(a => a.Filmes)
+                            .OrderByDescending(a => a.Filmes.Count)
+                            .Take(5);
 
-                        foreach (var cliente in clientes)
+                        foreach (var ator in atores)
                         {
-                            Console.WriteLine(cliente);
-                        }
-
-                        var funcionarios = context.Funcionarios.ToList();
-
-                        foreach (var functionario in funcionarios)
-                        {
-                            Console.WriteLine(functionario);
+                            Console.WriteLine(ator);
                         }
                     }
                     catch (Exception ex)

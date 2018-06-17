@@ -19,7 +19,10 @@ namespace Alura.Filmes.App.Negocio
 
         public override string ToString()
         {
-            return $"ID: {this.Id}, PRIMEIRO NOME: {this.PrimeiroNome}, ULTIMO NOME: {this.UltimoNome}";
+            return $"Id: {this.Id}" +
+                   $", Primeiro nome: {PrimeiroNome}" +
+                   $", Ultimo nome: {UltimoNome}" +
+                   $", Quantidade de filmes realizados: {Filmes.Count}";
         }
     }
 }
