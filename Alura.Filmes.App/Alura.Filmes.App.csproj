@@ -163,6 +163,7 @@
     <Compile Include="Dados\FuncionarioConfiguration.cs" />
     <Compile Include="Dados\LinguagemConfiguration.cs" />
     <Compile Include="Dados\PessoaConfiguration.cs" />
+    <Compile Include="Dados\VWAtorFilmeConfiguration.cs" />
     <Compile Include="Extensions\ClassificaoIndicativaExtensions.cs" />
     <Compile Include="Extensions\DbContextExtensions.cs" />
     <Compile Include="Migrations\20180614184738_ValorPadraoLastUpdateAtor.cs" />
@@ -200,6 +201,7 @@
     <Compile Include="Negocio\Funcionario.cs" />
     <Compile Include="Negocio\Linguagem.cs" />
     <Compile Include="Negocio\Pessoa.cs" />
+    <Compile Include="Negocio\VWAtorFilme.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

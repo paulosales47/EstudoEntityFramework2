@@ -18,7 +18,10 @@ namespace Alura.Filmes.App.Dados
         public DbSet<Filme> Filmes { get; set; }
         public DbSet<FilmeAtor> FilmeAtor { get; set; }
         public DbSet<FilmeCategoria> FilmeCategoria { get; set; }
-        
+
+        //QUERY TYPES
+        public DbQuery<VWAtorFilme> VWAtorFilmes { get; set; }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             optionsBuilder.UseSqlServer("Server = (localdb)\\mssqllocaldb; Database =FILME; Trusted_Connection = true;")
@@ -35,6 +38,7 @@ namespace Alura.Filmes.App.Dados
             modelBuilder.ApplyConfiguration(new FilmeConfiguration());
             modelBuilder.ApplyConfiguration(new FilmeAtorConfiguration());
             modelBuilder.ApplyConfiguration(new FilmeCategoriaConfiguration());
+            modelBuilder.ApplyConfiguration(new VWAtorFilmeConfiguration());
         }
 
     }

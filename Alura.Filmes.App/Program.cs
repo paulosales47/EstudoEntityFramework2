@@ -11,22 +11,20 @@ namespace Alura.Filmes.App
     {
         static void Main(string[] args)
         {
-            
+
             using (var context = new FilmeContexto())
             {
                 using (var contextTransaction = context.Database.BeginTransaction())
                 {
                     try
                     {
-                        var atores = context.Atores
-                            .Include(a => a.Filmes)
-                            .OrderByDescending(a => a.Filmes.Count)
-                            .Take(5);
+                        var topAtores = context.VWAtorFilmes.ToList();
 
-                        foreach (var ator in atores)
+                        foreach (var ator in topAtores)
                         {
                             Console.WriteLine(ator);
                         }
+
                     }
                     catch (Exception ex)
                     {
